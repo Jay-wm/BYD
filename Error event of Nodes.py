@@ -16,5 +16,5 @@ titles = ['EventEmcyCode', 'Group', 'Event', 'Description', 'Event_ID']
 with open('C80D-Error_Event.csv', encoding = 'utf-8') as f:
     writer = csv.DictWriter(f, filename = titles)
     writer.writeheader()
-    writer.write(data)
+    writer.writerows(data)
     
