@@ -1,0 +1,132 @@
+Group,Event,Event_ID
+Power stage,ShortCircuit,100
+Power stage,ShortCircuitCounter,101
+Power stage,ShortCGlitch,103
+Power stage,ExtWDogTripped,115
+Current Measurements,SensorOffset,200
+Current Measurements,OverCurrentError,202
+Current Measurements,OverCurrGlitch,203
+Current Measurements,DefaultValues,204
+Current Measurements,HighEnergyWarning,205
+Current Measurements,CustomizedOverCurrentError,310
+Current Measurements,AutoTuningHighModulation,330
+Motor,SpeedLimit,301
+Motor,HighSpeed,302
+Motor,ModeratelyHighSpeed,303
+Motor,ModeratelyLowSpeed,304
+Motor,SlipInWrongDirection,306
+Motor,TooHighZeroSpeedSlip,307
+Motor,ACCurrentControlError,308
+Motor,ACCurrentMeasPlausibilityError,309
+Motor,FrequencyAbove599Hz,320
+DC Bus,HighVoltageHardware,402
+DC Bus,ModeratelyHigh,403
+DC Bus,High,404
+DC Bus,ModeratelyLow,405
+DC Bus,Low,406
+DC Bus,ChargingError,407
+DC Bus,DefaultValues,408
+Power Stage Temperature Sensor,NotConnected,500
+Power Stage Temperature Sensor,ShortCircuit,501
+Power Stage Temperature Sensor,ModeratelyHigh,502
+Power Stage Temperature Sensor,High,503
+Power Stage Temperature Sensor,ModeratelyLow,504
+Motor Temperature Sensor,NotConnected,600
+Motor Temperature Sensor,ShortCircuit,601
+Motor Temperature Sensor,ModeratelyHigh,602
+Motor Temperature Sensor,High,603
+Motor Temperature Sensor,ModeratelyLow,604
+Pcb Temperature Sensor,NotConnected,700
+Pcb Temperature Sensor,ShortCircuit,701
+Pcb Temperature Sensor,ModeratelyHigh,702
+Pcb Temperature Sensor,High,703
+Pcb Temperature Sensor,ModeratelyLow,704
+Encoder Feedback Sensor,DecTooHigh,804
+Encoder Feedback Sensor,DecTooHighGlitch,826
+Encoder Feedback Sensor,PlausabilityError,805
+Encoder Feedback Sensor,Loss_Of_Ch_A,802
+Encoder Feedback Sensor,Loss_Of_Ch_B,803
+Encoder Feedback Sensor,BadOrShortedInputs,827
+Open Drain Output,ShortCircuitCh1,1001
+Open Drain Output,HighCurrentCh1,1021
+Open Drain Output,NotConnectedCh1,1011
+Open Drain Output,CurrMeasWhenOffCh1,1031
+Open Drain Output,ShortCircuitCh2,1002
+Open Drain Output,NotConnectedCh2,1012
+Open Drain Output,HighCurrentCh2,1022
+Open Drain Output,CurrMeasWhenOffCh2,1032
+Open Drain Output,ShortCircuitCh3,1003
+Open Drain Output,HighCurrentCh3,1023
+Open Drain Output,NotConnectedCh3,1013
+Open Drain Output,CurrMeasWhenOffCh3,1033
+Open Drain Output,ShortCircuitCh4,1004
+Open Drain Output,HighCurrentCh4,1024
+Open Drain Output,NotConnectedCh4,1014
+Open Drain Output,CurrMeasWhenOffCh4,1034
+Open Drain Output,ShortCircuitCh5,1005
+Open Drain Output,HighCurrentCh5,1025
+Open Drain Output,NotConnectedCh5,1015
+Open Drain Output,CurrMeasWhenOffCh5,1035
+Open Drain Output,ShortCircuitCh6,1006
+Open Drain Output,HighCurrentCh6,1026
+Open Drain Output,NotConnectedCh6,1016
+Open Drain Output,CurrMeasWhenOffCh6,1036
+HighSideDiagnostics,HighSideShC,1100
+HighSideDiagnostics,HighSideOverload,1108
+HighSideDiagnostics,HighSideHighPeakCurr,1109
+CAN,Pdo1Timeout,1200
+CAN,Pdo2Timeout,1201
+CAN,Pdo3Timeout,1202
+CAN,Pdo4Timeout,1203
+CAN,SynchTimeout,1204
+CAN,MapError,1205
+CAN,Sdo1Timeout,1206
+CAN,Sdo2Timeout,1207
+CAN,SDO1SessionBusy,1208
+CAN,SDO2SessionBusy,1209
+CAN,BusOff,1220
+Cpu,RecoveredReadError,1401
+Cpu,ChecksumError,1403
+Cpu,ChecksumErrorOnSensorAngleOffset,1420
+Cpu,ChecksumErrorOnCANTalk,1423
+Cpu,DefaultValues,1402
+Cpu,PowerOutReset,1400
+Cpu,BrownOutReset,1404
+Cpu,I_WatchdogTimeout,1406
+Cpu,W_WatchdogTimeout,1407
+Cpu,ExeTimeHigh_4kHz,1409
+Cpu,ExeTimeHigh_50Hz,1410
+Cpu,ExeTimeHigh_IndependentSupervision,1411
+Cpu,ExeTimeHigh_CAN,1412
+Cpu,ExeTimeHigh_SlowApp,1413
+Cpu,ExeTimeHigh_FastApp,1414
+Cpu,ExeTimeModHigh_SlowApp,1415
+Cpu,ExeTimeModHigh_FastApp,1416
+Cpu,InternalError,1450
+Cpu,BootInternalError,1451
+Cpu,ClockFailure,1460
+InternalSupply,15VOutOfRange,1700
+InternalSupply,5VOutOfRange,1701
+InternalSupply,3V3Low,1702
+InternalSupply,KeyLow,1703
+InternalSupply,AnalogSup1Range,1710
+InternalSupply,AnalogSup1SHC,1711
+InternalSupply,SensorSupNotCon,800
+InternalSupply,SensorSupSHC,801
+InternalSupply,SensorSupRange,811
+InternalSupply,SensSupRefRange,810
+InternalSupply,DefaultValues,830
+InternalSupply,ExtGndTripped,1730
+Application,ExampleEvent,10000
+StartupTest,CpuTest,1900
+StartupTest,Watchdog,1901
+StartupTest,64MHzHSI,1902
+StartupTest,Checkpoint1,1903
+StartupTest,FullRamMarch,1904
+StartupTest,SwitchOffPll,1905
+StartupTest,LsiStart,1906
+StartupTest,HseStart,1907
+StartupTest,HsiHse,1908
+StartupTest,ExtSource,1909
+StartupTest,ClockFreq,1910
+StartupTest,Checkpoint2,1911
