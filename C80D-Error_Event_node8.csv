@@ -1,0 +1,3226 @@
+EmergencyErrorCode,Group,Event,Description,Event_ID
+0x2340,Power stage,ShortCircuit,"
+
+      
+
+       Description
+
+       Hw detected short circuit.
+
+       If the short circuit protection detects a short circuit, the power stage will be shut down. This is done by Hw without Sw interaction.
+
+       The Sw will restart the power stage within 500 microseconds. If no new short is detected within 100 ms this will be regarded as a glitch.
+
+       If a new short circuit signal is detected within the 100 ms this will be regarded as a ""Hardware Detected Short Circuit"".
+
+       Event state will be set back to pending when power stage is disabled. 
+
+       A short circuit can be any of the following:
+
+       Short circuit phase to phase
+
+       Short circuit phase to ground (B-)
+
+       Short circuit phase to Supply (B+)
+
+       When is event evaluated
+
+       When enabled
+
+       Related parameters
+
+       No related parameters.
+
+      
+
+     ",100
+,Power stage,ShortCircuitCounter,"
+
+      
+
+       Description
+
+       This is an inforamative event that in combination with the ShortCircuit-event can be usefull when analyzing short circuit situations.
+
+       This event will be cleared when power stage is disabled. A consequnce of this is that for this event, unlike for the ShortCircuit-event, the occurance counter will increase also
+
+       when trying to enable against a permanent short circuit. 
+
+       When is event evaluated
+
+       When enabled
+
+       Related parameters
+
+       No related parameters.
+
+      
+
+     ",101
+0x2341,Power stage,ShortCGlitch,"
+
+    
+
+     Description
+
+     Hw detected short circuit glitch.
+
+     If the short circuit protection detects a short circuit, the power stage will be shut down. This is done by Hw without Sw interaction.
+
+     This event is always set whenever this happens.
+
+     The Sw will restart the power stage within 500 microseconds.
+
+     If a new short circuit signal is detected within the next 100 ms this will be regarded as a ""Hardware Detected Short Circuit"".
+
+     When is event evaluated
+
+     When enabled
+
+     Related parameters
+
+     No related parameters.
+
+    
+
+   ",103
+0x2355,Power stage,ExtWDogTripped,"
+
+    
+
+     Description
+
+     Hw watchdog in power stage.
+
+     If the watchdog in the power stage is not kicked on by the CPU, the power stage will shut down.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     No related parameters.
+
+    
+
+   ",115
+0x5210,Current Measurements,SensorOffset,"
+
+    
+
+     Description
+
+     Event is set if offset is too high.
+
+     Offset is calibrated when drive is disabled.
+
+     Limit is 10% of default offset that is 2047 (i.e. half of ADC full-scale value) 
+
+     When is event evaluated
+
+     When not enabled
+
+     Related parameters
+
+     CurrentSensorsCalibration, IvOffset
+
+     CurrentSensorsCalibration, IwOffset
+
+    
+
+   ",200
+0x2310,Current Measurements,OverCurrentError,"
+
+    
+
+     Description
+
+     Event is set if measured current is too high in any of the U,V or W phases and glitch counter is above trip limit.
+
+     SW algorithm: Measured current is above 150% of max allowed current (HwDetectedMaxCurrent) or if AD value or current core is close to saturation. 
+
+     Over current is detected if two consequtive measurements in the same phase are above the limit.
+
+     OverCurrenError event is set if over current is detected and glitch counter is above trip limit (>5000). 
+
+     An over current error can be caused by any of the following:
+
+     Short circuit or over current phase to phase
+
+     Short circuit phase to ground (B-)
+
+     Short circuit phase to Supply (B+)
+
+     When is event evaluated
+
+     When enabled
+
+     When event SensorOffset is not active
+
+     Related parameters
+
+     ApplicationSwInformation, HwDetectedMaxCurrent
+
+    
+
+   ",202
+0x2311,Current Measurements,OverCurrGlitch,"
+
+    
+
+     Description
+
+     Event is set if measured current is too high in any of the U, V or W phases and glitch counter is below trip limit.
+
+     SW algorithm: Measured current is above 150% of max allowed current (HwDetectedMaxCurrent) or if AD value or current core is close to saturation.
+
+     Over current is detected if two consequtive measurements in the same phase are above the limit.
+
+     OverCurrenGlitch event is set if over current is detected and glitch counter is below trip limit (<5000).
+
+     Glitch counter will then be increased (with 2000) and drive restarted. Glitch counter will be decreased (-1 every 250us) when
+
+     drive is enabled without over current detected. 
+
+     When is event evaluated
+
+     When enabled
+
+     When event SensorOffset is not active
+
+     Related parameters
+
+     ApplicationSwInformation, HwDetectedMaxCurrent
+
+    
+
+   ",203
+,Current Measurements,DefaultValues,"
+
+    
+
+     Description
+
+     Event is set when default values are loaded from Eeprom (either due to checksum error on segment or commanded by user).
+
+     Indicates that the drive is not calibrated. 
+
+     When is event evaluated
+
+     At startup
+
+     Related parameters
+
+     CurrentSensorsCalibration, SetDefaultValues
+
+     CurrentSensorsCalibration, IvGain
+
+     CurrentSensorsCalibration, IvPosTempGain
+
+     CurrentSensorsCalibration, IvNegTempGain
+
+     CurrentSensorsCalibration, IwGain
+
+     CurrentSensorsCalibration, IwPosTempGain
+
+     CurrentSensorsCalibration, IwNegTempGain
+
+     CurrentSensorsCalibration, IvOffset
+
+     CurrentSensorsCalibration, IwOffset
+
+    
+
+   ",204
+,Current Measurements,HighEnergyWarning,"
+
+    
+
+     Description
+
+     Event is set when calculated energy level is above specified limit.
+
+     Indicates that more then continous current have been used longen the intended. 
+
+     When is event evaluated
+
+     When enabled
+
+     Related parameters
+
+     EnergyLimit, ConstantCurrentLimit
+
+     EnergyLimit, ReductionPgain
+
+     EnergyLimit, EnergyFilterGain
+
+    
+
+   ",205
+0x2310,Current Measurements,CustomizedOverCurrentError,"
+
+    
+
+     Description
+
+     Event is set when unfiltered RMS current is above over current limit for the specified
+
+     number of consecutive samples. 
+
+     When is event evaluated
+
+     When OverCurrentLimit is not 0
+
+     When event SensorOffset is not active
+
+     Related parameters
+
+     OverCurrentLimit 
+
+     OverCurrentSampleLimit
+
+    
+
+   ",310
+,Current Measurements,AutoTuningHighModulation,"
+
+    
+
+     Description
+
+     Event is set when modulation exceed 95% when Autotuning.
+
+     Running above full modulation in Autotuning will compromize the result 
+
+     since the tuned parameters are for current control. 
+
+     To prevent the event the dc voltage can be increased or 
+
+     the Autotuning current decreased.
+
+     When is event evaluated
+
+     When doing Autotuning step1 or step2.
+
+     Related parameters
+
+     No related parameters.
+
+    
+
+   ",330
+0x8060,Motor,SpeedLimit,"
+
+    
+
+     Description
+
+     Event is set if motor speed is above a ramped speed limit. Typically used when Forced Braking or when a max speed limit is imposed by application.
+
+     When is event evaluated
+
+     When Forced Brake is activated.
+
+     Related parameters
+
+     No related parameters.
+
+    
+
+   ",301
+0x8060,Motor,HighSpeed,"
+
+    
+
+     Description
+
+     Event is set if motor speed is above predefined level.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     When speed feedback sensor signal is valid
+
+     Related parameters
+
+     IndependentSupervision, OverSpeedLimitForward
+
+     IndependentSupervision, OverSpeedLimitReverse
+
+    
+
+   ",302
+,Motor,ModeratelyHighSpeed,"
+
+    
+
+     Description
+
+     Event is set if motor speed is above predefined level.
+
+     Max allowed accelerating current is reduced linearly.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     When speed feedback sensor signal is valid
+
+     Related parameters
+
+     CurrentLimit, ModeratelyHighSpeedStartLevel
+
+     CurrentLimit, ModeratelyHighSpeedEndLevel
+
+     CurrentLimit, AbilityAccelerationCurrent
+
+     CurrentLimit, AbilityBrakeCurrent
+
+    
+
+   ",303
+,Motor,ModeratelyLowSpeed,"
+
+    
+
+     Description
+
+     Event is set if motor speed is below predefined level.
+
+     Mainly used in hybrid drives in combination with combustion engines 
+
+     to prevent rotation of engine in wrong direction.
+
+     Max allowed braking current is reduced linearly.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     When speed feedback sensor signal is valid
+
+     Related parameters
+
+     CurrentLimit, ModeratelyLowSpeedStartLevel
+
+     CurrentLimit, ModeratelyLowSpeedEndLevel
+
+     CurrentLimit, AbilityAccelerationCurrent
+
+     CurrentLimit, AbilityBrakeCurrent
+
+    
+
+   ",304
+0x8070,Motor,SlipInWrongDirection,"
+
+    
+
+    Description
+
+     SlipSpeed is controlled to achive correct orientation of the dq-plane. 
+
+     Event is set if SlipSpeed is wrong compared to ExpectedSlipSpeed.
+
+     The typical reason for this error is that when you performed the AutoTuning 
+
+     procedure the correct motor inductance and resistanse values was not found. 
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     InductionMotorParameters, SlipSpeedInWrongDirectionCheckLevel 
+
+     InductionMotorParameters, MaxAcceptableTimeWithSlipInWrongDirection      
+
+    
+
+   ",306
+0x8071,Motor,TooHighZeroSpeedSlip,"
+
+    
+
+    Description
+
+     SlipSpeed is controlled to achive correct orientation of the dq-plane. 
+
+     Event is set if SlipSpeed too high compared to expected slip speed at zero sensor speed.
+
+     The typical reason for this error is that the sensor is mechanically separeted from the motor. 
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     InductionMotorParameters, HighZeroSpeedSlipToleranceFactor 
+
+     InductionMotorParameters, MaxAcceptableTimeWithHighZeroSpeedSlip      
+
+    
+
+   ",307
+0x8090,Motor,ACCurrentControlError,"
+
+    
+
+     Description
+
+     Event is set if the difference between the expected AC current and the measured AC current is too high. 
+
+     This indicates faulty current measurement sensor(s) or badly tuned current controller.
+
+     
+
+     The event is set if all the following conditions are full-filled for at least 50ms: 
+
+     
+
+      ABS(CurrentReference - RmsMotorCurrent) < ACCurrentControlCurrentLimit / 100 * HwDetectedMaxCurrent
+
+      UPeakNormalized < ACCurrentControlUpeakLimit / 100 * UPeakLimit
+
+      FilteredVoltage > ACCurrentControlDcVoltageLimit / 100 * NominalVoltage
+
+     
+
+     When is event evaluated
+
+     When enabled, when Electric Motor Brake Mode is not active, when Over Voltage Protection is not active, when Current Control is enabled, when Auto Tuning is not active and when 
+
+     external IdRef/IqRef is not used. 
+
+     Related parameters
+
+     IndependentSupervision, ACCurrentControlCurrentLimit
+
+     IndependentSupervision, ACCurrentControlUpeakLimit
+
+     IndependentSupervision, ACCurrentControlDcVoltageLimit     
+
+    
+
+   ",308
+0x80A0,Motor,ACCurrentMeasPlausibilityError,"
+
+    
+
+     Description
+
+     Event is set if the reference AC voltage is higher than what the measured AC current indicates. 
+
+     This indicates that one or more motor phase cables are not connected properly 
+
+     or faulty current measurement sensor(s).
+
+     
+
+     The event is set if all the following conditions are full-filled for at least 50ms: 
+
+     
+
+      ABS(ActualSpeed) < ACCurrentMeasSpeedLimit
+
+      RmsMotorCurrent < ACCurrentMeasCurrentLimit / 100 * HwDetectedMaxCurrent
+
+      UPeakNormalized > ACCurrentMeasUpeakLimit / 100 * UPeakLimit
+
+      FilteredVoltage > ACCurrentMeasDcVoltageLimit / 100 * NominalVoltage
+
+     
+
+     When is event evaluated
+
+     When enabled, when Electric Motor Brake Mode is not active, when Over Voltage Protection is not active, when Current Control is enabled and when Auto Tuning is not active. 
+
+     Related parameters
+
+     IndependentSupervision, ACCurrentMeasSpeedLimit
+
+     IndependentSupervision, ACCurrentMeasCurrentLimit
+
+     IndependentSupervision, ACCurrentMeasUpeakLimit    
+
+     IndependentSupervision, ACCurrentMeasDcVoltageLimit    
+
+    
+
+   ",309
+0x80B0,Motor,FrequencyAbove599Hz,"
+
+    
+
+     Description
+
+     Event is set if the electric frequency is evaluated to be above 599Hz.
+
+     This event must be configured to trip power stage. 
+
+     Changing the configuration of this event in a library version of Plasma3 will have no effect. 
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     No related parameters.  
+
+    
+
+   ",320
+0x3212,DC Bus,HighVoltageHardware,"
+
+    
+
+     Description
+
+     HW detected over voltage. Level is defined by HW design.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     No related parameters.
+
+    
+
+   ",402
+,DC Bus,ModeratelyHigh,"
+
+    
+
+     Description
+
+     Event is set if measured voltage is above predefined level.
+
+     Max allowed current is reduced linearly. Hystereris level of 1 V for setting/clearing event.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     DcBus, HighWarningLevel
+
+     DcBus, HighVoltageReductionEndLevel
+
+     CurrentLimit, AbilityBrakeCurrent
+
+    
+
+   ",403
+0x3211,DC Bus,High,"
+
+    
+
+    Description
+
+     Event is set if measured voltage is above predefined level.
+
+     Hysteresis level of 1V for setting/clearing event.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     DcBus, HighTripLevel 
+
+    
+
+   ",404
+,DC Bus,ModeratelyLow,"
+
+    
+
+     Description
+
+     Event is set if measured voltage is below predefined level.
+
+     Max allowed current is reduced linearly. Hystereris level of 1 V for setting/clearing event.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     When ignore low DC bus bit is not active
+
+     Related parameters
+
+     DcBus, LowWarningLevel
+
+     DcBus, LowVoltageReductionEndLevel
+
+     CurrentLimit, AbilityAccelerationCurrent
+
+    
+
+   ",405
+0x3221,DC Bus,Low,"
+
+    
+
+     Description
+
+     Event is set if measured voltage is below predefined level.
+
+     Hysteresis level of 1V for setting/clearing event.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     When ignore low DC bus bit is not active
+
+     Related parameters
+
+     DcBus, LowTripLevel 
+
+    
+
+   ",406
+0x3120,DC Bus,ChargingError,"
+
+    
+
+     Description
+
+     Event is set if measured voltage is below predefined level after a predefined time at startup.
+
+     Limits: See related parameters.
+
+     When is event evaluated
+
+     At startup
+
+     Related parameters
+
+     DcBus, ChargingLevel
+
+     DcBus, MaxChargeTime
+
+    
+
+   ",407
+,DC Bus,DefaultValues,"
+
+    
+
+     Description
+
+     Event is set when default values are loaded from Eeprom (either due to checksum error on segment or commanded by user).
+
+     Indicates that the drive is not calibrated. 
+
+     When is event evaluated
+
+     At startup
+
+     Related parameters
+
+     DcBus, DcBusCalValueGain
+
+     DcBus, DcBusCalValueOffset
+
+     DcBus, SetDcBusCalValuesDefault
+
+    
+
+   ",408
+0x4320,Power Stage Temperature Sensor,NotConnected,"
+
+    
+
+     Description
+
+     Event is set if internal Power Stage temperature sensor is not connected.
+
+     SW algorithm: Temperature measurement is out of range.
+
+     Limits: Event is set when sensor measures 130     deg celsius
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     PowerStageTemperature, Temperature    
+
+    
+
+   ",500
+0x4320,Power Stage Temperature Sensor,ShortCircuit,"
+
+    
+
+     Description
+
+     Event is set if internal Power Stage temperature sensor is short circuited.
+
+     SW algorithm: Temperature measurement is out of range.
+
+     Limits: Event is set when sensor measures -50     deg celsius
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     PowerStageTemperature, Temperature
+
+    
+
+   ",501
+,Power Stage Temperature Sensor,ModeratelyHigh,"
+
+    
+
+     Description
+
+     Event is set if internal Power Stage temperature is above predefined level.
+
+     Max allowed accelerating AC current is reduced linearly.
+
+     Optionally Max allowed brakeing AC current is reduced linearly.
+
+     Limits: Event is set at HeatSinkHighWarningLevel deg celcius where reduction of AC current starts. 
+
+     At HeatSinkReductionEndHighLevel deg celsius AC current is reduced to 0.
+
+     If HeatSinkReductionEndHighLevel is 0 reduction is in-active.
+
+     
+
+      HeatSinkHighWarningLevel = 85     
+
+      HeatSinkReductionEndHighLevel = 125    
+
+      
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     PowerStageTemperature, Temperature
+
+     CurrentLimit, AbilityAccelerationCurrent
+
+     CurrentLimit, AbilityBrakeCurrent
+
+    
+
+   ",502
+0x4310,Power Stage Temperature Sensor,High,"
+
+    
+
+     Description
+
+     Event is set if internal Power Stage temperature is above predefined level.
+
+     Limits: Event is set at 110     deg celsius.
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     PowerStageTemperature, Temperature
+
+    
+
+   ",503
+,Power Stage Temperature Sensor,ModeratelyLow,"
+
+    
+
+     Description
+
+     Event is set if internal Power Stage temperature is below predefined level.
+
+     Max allowed accelerating AC current is reduced linearly.
+
+     Optionally Max allowed brakeing AC current is reduced linearly. 
+
+     Limits: Event is set at HeatSinkLowWarningLevel deg celcius where reduction of AC current starts. 
+
+     At HeatSinkReductionEndLowLevel deg celsius AC current is reduced to 0.
+
+     If HeatSinkReductionEndLowLevel is 0 reduction is in-active.
+
+     
+
+      HeatSinkLowWarningLevel = -20    
+
+      HeatSinkReductionEndLowLevel = -70    
+
+         
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     PowerStageTemperature, Temperature    
+
+     CurrentLimit, AbilityAccelerationCurrent
+
+     CurrentLimit, AbilityBrakeCurrent
+
+    
+
+   ",504
+0x4220,Motor Temperature Sensor,NotConnected,"
+
+    
+
+    Description
+
+     Event is set if motor temperature sensor is not connected.
+
+     SW algorithm: Temperature measurement is out of range.
+
+     Limits: Event is set when sensor measures 210 deg celsius
+
+     Note: If the resistance decreases with increasing temperature, such
+
+     as for an NTC sensor, this event signals a short-circuit instead.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     MotorTemperature, Temperature
+
+    
+
+   ",600
+0x4220,Motor Temperature Sensor,ShortCircuit,"
+
+    
+
+     Description
+
+     Event is set if motor temperature sensor is short circuited.
+
+     SW algorithm: Temperature measurement is out of range.
+
+     Limits: Event is set when sensor measures -50 deg celsius
+
+     Note: If the resistance decreases with increasing temperature, such
+
+     as for an NTC sensor, this event signals a not connected sensor instead.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     MotorTemperature, Temperature
+
+    
+
+   ",601
+,Motor Temperature Sensor,ModeratelyHigh,"
+
+    
+
+     Description
+
+     Event is set if motor temperature is above predefined level.
+
+     Max allowed accelerating AC current is reduced linearly.
+
+     Optionally Max allowed brakeing AC current is reduced linearly.
+
+     Limits: Event is set at MotorHighWarningLevel deg celcius where reduction of AC current starts. 
+
+     At MotorReductionEndHighLevel deg celsius AC current is reduced to 0.
+
+     If MotorReductionEndHighLevel is 0 reduction is in-active.
+
+     
+
+      MotorHighWarningLevel = 155
+
+      MotorReductionEndHighLevel = 165
+
+     
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     MotorTemperature, Temperature
+
+     MotorTemperature, ModeratelyHighLevel
+
+     MotorTemperature, ReductionEndHighLevel
+
+    
+
+   ",602
+0x4210,Motor Temperature Sensor,High,"
+
+    
+
+     Description
+
+     Event is set if motor temperature is above predefined level.
+
+     Limits: Event is set at 180 deg celsius. 
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     MotorTemperature, Temperature
+
+     MotorTemperature, HighLevel
+
+    
+
+   ",603
+,Motor Temperature Sensor,ModeratelyLow,"
+
+    
+
+     Event is set if motor temperature is below predefined level.
+
+     Max allowed accelerating AC current is reduced linearly.
+
+     Optionally Max allowed brakeing AC current is reduced linearly.
+
+     Limits: Event is set at MotorLowWarningLevel deg celcius where reduction of AC current starts. 
+
+     At MotorReductionEndLowLevel deg celsius AC current is reduced to 0.
+
+     If MotorReductionEndLowLevel is 0 reduction is in-active.
+
+     
+
+      MotorHighWarningLevel = -35
+
+      MotorReductionEndLowLevel = 0
+
+     
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     MotorTemperature, Temperature
+
+     MotorTemperature, ModeratelyLowLevel
+
+     MotorTemperature, ReductionEndLowLevel
+
+    
+
+   ",604
+,Pcb Temperature Sensor,NotConnected,"
+
+    
+
+     Description
+
+     Event is set if internal PCB temperature sensor is not connected.
+
+     SW algorithm: Temperature measurement is out of range.
+
+     Limits: Event is set when sensor measures 120     deg celsius
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     PCBTemperature, Temperature
+
+    
+
+   ",700
+,Pcb Temperature Sensor,ShortCircuit,"
+
+    
+
+     Description
+
+     Event is set if internal PCB temperature sensor is short circuited.
+
+     SW algorithm: Temperature measurement is out of range.
+
+     Limits: Event is set when sensor measures -50     deg celsius
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     PCBTemperature, Temperature
+
+    
+
+   ",701
+,Pcb Temperature Sensor,ModeratelyHigh,"
+
+    
+
+     Description
+
+     Event is set if measured temperature is above predefined level.
+
+     Limits: Event is set at 80      deg celsius.
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     PCBTemperature, Temperature
+
+    
+
+   ",702
+,Pcb Temperature Sensor,High,"
+
+    
+
+     Description
+
+     Event is set if measured temperature is above predefined level.
+
+     Limits: Event is set at 95      deg celsius.
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     PCBTemperature, Temperature
+
+    
+
+   ",703
+,Pcb Temperature Sensor,ModeratelyLow,"
+
+    
+
+     Description
+
+     Event is set if measured temperature is below predefined level.
+
+     Limits: Event is set at -45     deg celsius.
+
+     When is event evaluated
+
+     When sensor is connected and not short circuit
+
+     Related parameters
+
+     PCBTemperature, Temperature
+
+    
+
+   ",704
+0x7240,Encoder Feedback Sensor,DecTooHigh,"
+
+        
+
+         Description
+
+         Event is set if change of sensor speed is too high (measured rotor acceleration).
+
+         Detected if sensor is faulty during more than 40 ms +/-1ms or if there is been to many intermittent faults within a certain time. When the sensor value is valid the glitch counter is decreased with one (1) every 1ms. If the counter reaches 80, the DecTooHigh event is set.
+
+         Evaluated at 1 kHz. Checked at 50 Hz.
+
+         Limits: 1000rpm/20ms
+
+         When is event evaluated
+
+         Always.
+
+         Related parameters
+
+         No related parameters.
+
+        
+
+      ",804
+0x7260,Encoder Feedback Sensor,DecTooHighGlitch,"
+
+        
+
+         Description
+
+         Event is set if intermittent change of sensor speed is too high (measured rotor deceleration) and DecTooHigh event is not detected.
+
+         Event is cleared if enable command transits from enable to disable.
+
+         The glitch counter is increased with two (2) every 1ms as long as the sensor value is not valid during and following a fault.
+
+         Evaluated at 1 kHz. Checked at 50 Hz.
+
+         When is event evaluated
+
+         Always.
+
+         Related parameters
+
+         No related parameters.
+
+        
+
+      ",826
+0x7250,Encoder Feedback Sensor,PlausabilityError,"
+
+        
+
+         Description
+
+         Event is set if the sensor speed is too high, i.e a not plausible/possible speed.
+
+         Limits: 15000rpm
+
+         When is event evaluated
+
+         When drive is enabled.
+
+         Related parameters
+
+         No related parameters.
+
+        
+
+      ",805
+0x7360,Encoder Feedback Sensor,Loss_Of_Ch_A,"
+
+        
+
+         Description
+
+         Event is set if only Ch B is toggling and Ch A is not.
+
+         When is event evaluated
+
+         When drive is enabled and previous speed has to be above PulseCheckChannelLowSpeedLimit and channel B 
+
+         be must be toggling at 1kHz or below.
+
+         Counted at 4 kHz. Checked at 50 Hz.
+
+         Related parameters
+
+          SensorBearingFeedback, PulseCheckChannelLowSpeedLimit
+
+        
+
+      ",802
+0x7370,Encoder Feedback Sensor,Loss_Of_Ch_B,"
+
+        
+
+         Description
+
+         Event is set if only Ch A is toggling and Ch B is not.
+
+         When is event evaluated
+
+         When drive is enabled and previous speed has to be above PulseCheckChannelLowSpeedLimit and channel A 
+
+         be must be toggling at 1kHz or below.
+
+         Counted at 4 kHz. Checked at 50 Hz.
+
+         Related parameters
+
+          SensorBearingFeedback, PulseCheckChannelLowSpeedLimit
+
+        
+
+      ",803
+0x7351,Encoder Feedback Sensor,BadOrShortedInputs,"
+
+        
+
+        Bad state machine transition, can indicate shorted inputs. This detection is active from 0 upto aprox. +-250 Hz. When using a 64 PPR sensor, the range can be interpreted as RPM 
+
+        Evaluated at 4 kHz. Checked at 50 Hz.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",827
+0x5411,Open Drain Output,ShortCircuitCh1,"
+
+      
+
+        Description
+
+        Set when HW Short Circuit signal is detected. Disabling of output required to clear event.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Checked at 50Hz. Signal is reset once and if signal  
+
+        becomes active again within 100ms the event is set and output is latched in tripped state.
+
+        Related parameters
+
+        No related parameters.
+
+      
+
+      ",1001
+0x5411,Open Drain Output,HighCurrentCh1,"
+
+        
+
+        Description
+
+        Set when Peak Overcurrent or Overload is detected.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Peak trip level detected within 1-5ms ms and 
+
+        Overload after 10s of overload condition.
+
+        Related parameters
+
+        OpenDrainOutputPeakCurrentLevel, PeakCurrentLevel
+
+        OpenDrainOutputOverloadCurrentLevel, OverloadCurrentLevel
+
+        
+
+      ",1021
+0x5451,Open Drain Output,NotConnectedCh1,"
+
+        
+
+        Description
+
+        Set when measured current is below the NotConnectedLevel.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. In current control mode the CurrentReference has to be 75mA above the 
+
+        NotConnectedLevel for the event to be evaluated. In manual and voltage control mode the duty cycle has to be above 25%. 
+
+        Related parameters
+
+        OpenDrainOutputNotConnectedLevel, NotConnectedLevel
+
+    	
+
+      ",1011
+0x5461,Open Drain Output,CurrMeasWhenOffCh1,"
+
+        
+
+        Description
+
+        Set when more than 200 mA current is measured when the output should be off.
+
+        When is event evaluated
+
+        When Open Drain output is not enabled (i.e. disabled or tripped).
+
+        Related parameters
+
+        No related parameters.
+
+    	
+
+      ",1031
+0x5412,Open Drain Output,ShortCircuitCh2,"
+
+      
+
+        Description
+
+        Set when HW Short Circuit signal is detected. Disabling of output required to clear event.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Checked at 50Hz. Signal is reset once and if signal  
+
+        becomes active again within 100ms the event is set and output is latched in tripped state.
+
+        Related parameters
+
+        No related parameters.
+
+      
+
+      ",1002
+0x5452,Open Drain Output,NotConnectedCh2,"
+
+        
+
+        Description
+
+        Set when measured current is below the NotConnectedLevel.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. In current control mode the CurrentReference has to be 75mA above the 
+
+        NotConnectedLevel for the event to be evaluated. In manual and voltage control mode the duty cycle has to be above 25%. 
+
+        Related parameters
+
+        OpenDrainOutputNotConnectedLevel, NotConnectedLevel
+
+        
+
+      ",1012
+0x5412,Open Drain Output,HighCurrentCh2,"
+
+    	
+
+        Description
+
+        Set when Peak Overcurrent or Overload is detected.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Peak trip level detected within 1-5ms ms and 
+
+        Overload after 10s of overload condition.
+
+        Related parameters
+
+        OpenDrainOutputPeakCurrentLevel, PeakCurrentLevel
+
+        OpenDrainOutputOverloadCurrentLevel, OverloadCurrentLevel
+
+    	
+
+      ",1022
+0x5462,Open Drain Output,CurrMeasWhenOffCh2,"
+
+        
+
+        Description
+
+        Set when more than 200 mA current is measured when the output should be off.
+
+        When is event evaluated
+
+        When Open Drain output is not enabled (i.e. disabled or tripped).
+
+        Related parameters
+
+        No related parameters.
+
+    	
+
+      ",1032
+0x5413,Open Drain Output,ShortCircuitCh3,"
+
+      
+
+        Description
+
+        Set when HW Short Circuit signal is detected. Disabling of output required to clear event.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Checked at 50Hz. Signal is reset once and if signal  
+
+        becomes active again within 100ms the event is set and output is latched in tripped state.
+
+        Related parameters
+
+        No related parameters.
+
+      
+
+      ",1003
+0x5413,Open Drain Output,HighCurrentCh3,"
+
+        
+
+        Description
+
+        Set when Peak Overcurrent or Overload is detected.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Peak trip level detected within 1-5ms ms and 
+
+        Overload after 10s of overload condition.
+
+        Related parameters
+
+        OpenDrainOutputPeakCurrentLevel, PeakCurrentLevel
+
+        OpenDrainOutputOverloadCurrentLevel, OverloadCurrentLevel
+
+        
+
+      ",1023
+0x5453,Open Drain Output,NotConnectedCh3,"
+
+        
+
+        Description
+
+        Set when measured current is below the NotConnectedLevel.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. In current control mode the CurrentReference has to be 75mA above the 
+
+        NotConnectedLevel for the event to be evaluated. In manual and voltage control mode the duty cycle has to be above 25%. 
+
+        Related parameters
+
+        OpenDrainOutputNotConnectedLevel, NotConnectedLevel
+
+        
+
+      ",1013
+0x5463,Open Drain Output,CurrMeasWhenOffCh3,"
+
+        
+
+        Description
+
+        Set when more than 200 mA current is measured when the output should be off.
+
+        When is event evaluated
+
+        When Open Drain output is not enabled (i.e. disabled or tripped).
+
+        Related parameters
+
+        No related parameters.
+
+    	
+
+      ",1033
+0x5414,Open Drain Output,ShortCircuitCh4,"
+
+      
+
+        Description
+
+        Set when HW Short Circuit signal is detected. Disabling of output required to clear event.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Checked at 50Hz. Signal is reset once and if signal  
+
+        becomes active again within 100ms the event is set and output is latched in tripped state.
+
+        Related parameters
+
+        No related parameters.
+
+      
+
+      ",1004
+0x5414,Open Drain Output,HighCurrentCh4,"
+
+        
+
+        Description
+
+        Set when Peak Overcurrent or Overload is detected.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Peak trip level detected within 1-5ms ms and 
+
+        Overload after 10s of overload condition.
+
+        Related parameters
+
+        OpenDrainOutputPeakCurrentLevel, PeakCurrentLevel
+
+        OpenDrainOutputOverloadCurrentLevel, OverloadCurrentLevel
+
+        
+
+      ",1024
+0x5454,Open Drain Output,NotConnectedCh4,"
+
+        
+
+        Description
+
+        Set when measured current is below the NotConnectedLevel.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. In current control mode the CurrentReference has to be 75mA above the 
+
+        NotConnectedLevel for the event to be evaluated. In manual and voltage control mode the duty cycle has to be above 25%. 
+
+        Related parameters
+
+        OpenDrainOutputNotConnectedLevel, NotConnectedLevel
+
+    	
+
+      ",1014
+0x5464,Open Drain Output,CurrMeasWhenOffCh4,"
+
+        
+
+        Description
+
+        Set when more than 200 mA current is measured when the output should be off.
+
+        When is event evaluated
+
+        When Open Drain output is not enabled (i.e. disabled or tripped).
+
+        Related parameters
+
+        No related parameters.
+
+    	
+
+      ",1034
+0x5415,Open Drain Output,ShortCircuitCh5,"
+
+      
+
+        Description
+
+        Set when HW Short Circuit signal is detected. Disabling of output required to clear event.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Checked at 50Hz. Signal is reset once and if signal  
+
+        becomes active again within 100ms the event is set and output is latched in tripped state.
+
+        Related parameters
+
+        No related parameters.
+
+      
+
+      ",1005
+0x5415,Open Drain Output,HighCurrentCh5,"
+
+        
+
+        Description
+
+        Set when Peak Overcurrent or Overload is detected.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Peak trip level detected within 1-5ms ms and 
+
+        Overload after 10s of overload condition.
+
+        Related parameters
+
+        OpenDrainOutputPeakCurrentLevel, PeakCurrentLevel
+
+        OpenDrainOutputOverloadCurrentLevel, OverloadCurrentLevel
+
+        
+
+      ",1025
+0x5455,Open Drain Output,NotConnectedCh5,"
+
+        
+
+        Description
+
+        Set when measured current is below the NotConnectedLevel.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. In current control mode the CurrentReference has to be 75mA above the 
+
+        NotConnectedLevel for the event to be evaluated. In manual and voltage control mode the duty cycle has to be above 25%. 
+
+        Related parameters
+
+        OpenDrainOutputNotConnectedLevel, NotConnectedLevel
+
+        
+
+      ",1015
+0x5465,Open Drain Output,CurrMeasWhenOffCh5,"
+
+        
+
+        Description
+
+        Set when more than 200 mA current is measured when the output should be off.
+
+        When is event evaluated
+
+        When Open Drain output is not enabled (i.e. disabled or tripped).
+
+        Related parameters
+
+        No related parameters.
+
+    	
+
+      ",1035
+0x5416,Open Drain Output,ShortCircuitCh6,"
+
+      
+
+        Description
+
+        Set when HW Short Circuit signal is detected. Disabling of output required to clear event.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Checked at 50Hz. Signal is reset once and if signal  
+
+        becomes active again within 100ms the event is set and output is latched in tripped state.
+
+        Related parameters
+
+        No related parameters.
+
+      
+
+      ",1006
+0x5416,Open Drain Output,HighCurrentCh6,"
+
+      
+
+        Description
+
+        Set when Peak Overcurrent or Overload is detected.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. Peak trip level detected within 1-5ms ms and 
+
+        Overload after 10s of overload condition.
+
+        Related parameters
+
+        OpenDrainOutputPeakCurrentLevel, PeakCurrentLevel
+
+        OpenDrainOutputOverloadCurrentLevel, OverloadCurrentLevel
+
+      
+
+      ",1026
+0x5456,Open Drain Output,NotConnectedCh6,"
+
+        
+
+        Description
+
+        Set when measured current is below the NotConnectedLevel.
+
+        When is event evaluated
+
+        When Open Drain output is enabled. In current control mode the CurrentReference has to be 75mA above the 
+
+        NotConnectedLevel for the event to be evaluated. In manual and voltage control mode the duty cycle has to be above 25%. 
+
+        Related parameters
+
+        OpenDrainOutputNotConnectedLevel, NotConnectedLevel
+
+    	      ",1016
+0x5466,Open Drain Output,CurrMeasWhenOffCh6,"
+
+        
+
+        Description
+
+        Set when more than 200 mA current is measured when the output should be off.
+
+        When is event evaluated
+
+        When Open Drain output is not enabled (i.e. disabled or tripped).
+
+        Related parameters
+
+        No related parameters.
+
+    	
+
+      ",1036
+0x5500,HighSideDiagnostics,HighSideShC,"
+
+      
+
+        Description
+
+        Set when HW Short Circuit signal is detected. Disabling of output required to clear event.
+
+        When is event evaluated
+
+        When High Side output is enabled. Checked at 50Hz. Signal is reset once and if signal  
+
+        becomes active again within 100ms the event is set and output is latched in tripped state.
+
+        Related parameters
+
+        No related parameters.
+
+      
+
+    ",1100
+0x5508,HighSideDiagnostics,HighSideOverload,"
+
+      
+
+        Description
+
+        High continuous current on High side out.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        HighSide, HighSideOverloadCurrentLevel
+
+        HighSide, HighSideOutCurrent
+
+      
+
+    ",1108
+0x5509,HighSideDiagnostics,HighSideHighPeakCurr,"
+
+      
+
+        Description
+
+        High peak current on High side out.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        HighSide, HighSidePeakCurrentLevel
+
+        HighSide, HighSideOutCurrent       
+
+      
+
+    ",1109
+0x8101,CAN,Pdo1Timeout,"
+
+    
+
+     Description
+
+     Event is set if Rx PDO 1 is not received within timeout time.
+
+     When is event evaluated
+
+     When NMT state is pre-operational or operational.
+
+     Related parameters
+
+     CANParameters, Pdo1Timeout    
+
+    
+
+   ",1200
+0x8102,CAN,Pdo2Timeout,"
+
+    
+
+     Description
+
+     Event is set if Rx PDO 2 is not received within timeout time.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     CANParameters, Pdo2Timeout    
+
+    
+
+   ",1201
+0x8103,CAN,Pdo3Timeout,"
+
+    
+
+     Description
+
+     Event is set if Rx PDO 3 is not received within timeout time.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     CANParameters, Pdo3Timeout    
+
+    
+
+   ",1202
+0x8104,CAN,Pdo4Timeout,"
+
+    
+
+     Description
+
+     Event is set if Rx PDO 4 is not received within timeout time.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     CANParameters, Pdo4Timeout    
+
+    
+
+   ",1203
+0x8105,CAN,SynchTimeout,"
+
+    
+
+     Description
+
+     Event is set if Sync is not received within timeout time. 
+
+     When is event evaluated
+
+     Always
+
+     Related parameters 
+
+     CANParameters, SyncTimeout
+
+    
+
+   ",1204
+0x8100,CAN,MapError,"
+
+    
+
+     Description
+
+     Event is set if any PDO map has invalid configuration.
+
+     When is event evaluated
+
+     At Startup
+
+     Related parameters
+
+     No related parameters.
+
+    
+
+   ",1205
+0x8110,CAN,Sdo1Timeout,"
+
+    
+
+     Description
+
+     Event is set if no SDO messages has been received within the timeout time on SDO1.
+
+     The error detection is started after the first message is received.
+
+     This event is evaluated in an application with no PDOs active. 
+
+     The drive will be disabled on timeout and can not be reenabled.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     CANParameters, SdoTimeout
+
+    
+
+   ",1206
+0x8111,CAN,Sdo2Timeout,"
+
+    
+
+     Description
+
+     Event is set if no SDO message has been received within the timeout time on SDO2.
+
+     The error detection is started after the first message is received.     
+
+     This event is evaluated in an application with no PDOs active. 
+
+     The drive will be disabled on timeout and can not be reenabled.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+     CANParameters, SdoTimeout
+
+    
+
+   ",1207
+0x8118,CAN,SDO1SessionBusy,"
+
+    
+
+     Description
+
+     The event is set when an SDO1 request is not finished and a new SDO1 request is received.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+    
+
+   ",1208
+0x8119,CAN,SDO2SessionBusy,"
+
+    
+
+     Description
+
+     The event is set when an SDO2 request is not finished and a new SDO2 request is received.
+
+     When is event evaluated
+
+     Always
+
+     Related parameters
+
+    
+
+   ",1209
+,CAN,BusOff,"
+
+    
+
+     Description
+
+     Event is set if CAN chip on MCU has entered Bus Off state at least once since reset of unit.
+
+     Reset of unit is required to clear event.
+
+     When is event evaluated
+
+     After startup sequence.
+
+     Related parameters
+
+     No related parameters.
+
+    
+
+   ",1220
+,Cpu,RecoveredReadError,"
+
+        
+
+        Description
+
+        Fault is set if there is a checksum error on any eeprom segment with checksum and that the segment has been successfully read during a retry.  
+
+        It is then considered a read error. This could indicate EMC problems for example.
+
+        When is event evaluated
+
+        Whenever eeprom parameters are read. Typically at Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1401
+0x5520,Cpu,ChecksumError,"
+
+        
+
+        Description
+
+        Fault is set if there is a checksum error on any eeprom segment with checksum.
+
+        Some segments also have idividual checksum error events. 
+
+        Some segments also have a default values event that will be set in case of checksum error on that segment.
+
+        Typically calibration data segments has default values event.
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1403
+0x5521,Cpu,ChecksumErrorOnSensorAngleOffset,"
+
+        
+
+        Description
+
+        Event is set if if checksum error has occured on sensor angle offset related eeprom segment (see SFIFMG_CAL in EEProm layout).
+
+        When is event evaluated
+
+        At startup.
+
+        Related parameters
+
+        FeedbackSensor, SensorAngleOffset
+
+        
+
+      ",1420
+0x5524,Cpu,ChecksumErrorOnCANTalk,"
+
+        
+
+        Description
+
+        Event is set if if checksum error has occured on CANTalk eeprom segment (see CTLKCM in EEProm layout).
+
+        When is event evaluated
+
+        At startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1423
+,Cpu,DefaultValues,"
+
+        
+
+        Description
+
+        Fault is set if new SW is downloaded, HW id is changed or there is a 
+
+        checksum error on the systmg eeprom segment.
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1402
+0x8403,Cpu,PowerOutReset,"
+
+        
+
+        Description
+
+        MCU was unintentionally reset due to low 3.3V powersupply. 
+
+        Event also needs to be supported by boot sw. 
+
+        When is event evaluated
+
+        At startup
+
+        Event is cleared after 2 seconds.
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1400
+0x8404,Cpu,BrownOutReset,"
+
+        
+
+        Description
+
+        MCU was unintentionally reset due to low 3.3V powersupply. 
+
+        Event also needs to be supported by boot sw. 
+
+        When is event evaluated
+
+        At startup
+
+        Event is cleared after 2 seconds.
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1404
+0x8400,Cpu,I_WatchdogTimeout,"
+
+        
+
+        Description
+
+        MCU internal Independent watchdog not reset in time causing the MCU to reset.
+
+        When is event evaluated
+
+        At startup
+
+        Event is cleared after 2 seconds.
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1406
+0x8401,Cpu,W_WatchdogTimeout,"
+
+        
+
+        Description
+
+        MCU internal Windowed watchdog not reset in time or reset too early causing the MCU to reset.
+
+        When is event evaluated
+
+        At startup
+
+        Event is cleared after 2 seconds.
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1407
+0x8410,Cpu,ExeTimeHigh_4kHz,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 200U   us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1409
+0x8411,Cpu,ExeTimeHigh_50Hz,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 6000U  us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1410
+0x8412,Cpu,ExeTimeHigh_IndependentSupervision,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 500U   us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1411
+0x8413,Cpu,ExeTimeHigh_CAN,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 1000U  us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1412
+0x8414,Cpu,ExeTimeHigh_SlowApp,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 4000U  us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1413
+0x8415,Cpu,ExeTimeHigh_FastApp,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 500U   us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1414
+0x8416,Cpu,ExeTimeModHigh_SlowApp,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 2500U   us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1415
+0x8417,Cpu,ExeTimeModHigh_FastApp,"
+
+        
+
+        Description
+
+        Set when average execution time is higher than 250U   us.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1416
+0x8450,Cpu,InternalError,"
+
+        
+
+        Description
+
+        Internal error occurred. It is most likely a static configuration error that is not caught at compile time, such as
+
+        
+
+         Impossible configuration in flash memory.
+
+         Illegal ErrorBit configured for an event 
+
+         Same EventId on two different event.
+
+        
+
+        But it can also be set by various state machines when an unknown state is encountered.
+
+        See Related Parameters for more information regarding error condition, i.e. module name, line and count.
+
+        When is event evaluated
+
+        Startup
+
+        Related parameters
+
+        RTOS, InternalDebugModuleName
+
+        RTOS, InternalDebugLineNumber
+
+        RTOS, InternalDebugCount
+
+        
+
+      ",1450
+0x8452,Cpu,BootInternalError,"
+
+        
+
+        Description
+
+        Internal error occurred in boot. It may occure if an incompatible application is running with the boot code.
+
+        When is event evaluated
+
+        Startup
+
+        Related parameters
+
+        RTOS.BootInternalDebugModuleName
+
+        RTOS.BootInternalDebugLineNumber
+
+        RTOS.BootInternalDebugCount
+
+        
+
+      ",1451
+0x8451,Cpu,ClockFailure,"
+
+        
+
+        Description
+
+        CPU clock failure. Either External crystal or internal PLL failed to generate a stable clock.
+
+        CPU will be clocked by the internal 8MHz RC-oscillator.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1460
+0x3301,InternalSupply,15VOutOfRange,"
+
+        
+
+        Description
+
+        Internal 15V supply out of range. Valid range 10.56 to 19.00V.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, 15V
+
+        
+
+      ",1700
+0x3302,InternalSupply,5VOutOfRange,"
+
+        
+
+        Description
+
+        Internal 5V supply out of range. Valid range 4.12 to 5.88V.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, 5V
+
+        
+
+      ",1701
+0x3302,InternalSupply,3V3Low,"
+
+        
+
+        Description
+
+        Internal 3.3V supply too low. Limit 2.9V. Uses MCU internal PVD (Programmable Voltage Detection).
+
+        A flag is set by MCU hardware and event is set when VDD is below the limit and cleared if above.
+
+        Hysteresis is 100mV
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1702
+,InternalSupply,KeyLow,"
+
+      
+
+       Description
+
+       Restart event used to disable drive when key goes low. Drive is enabled again if key goes high withing 175ms. If key is low more than that drive will enter AFTERRUN state.
+
+       When is event evaluated
+
+       Always
+
+       Related parameters
+
+       No related parameters.
+
+      
+
+     ",1703
+0x3311,InternalSupply,AnalogSup1Range,"
+
+        
+
+        Description
+
+        Analog supply 1 out of range. Valid range 4.00 to 6.00 V.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, AnalogSupply1Voltage
+
+        
+
+      ",1710
+0x3312,InternalSupply,AnalogSup1SHC,"
+
+        
+
+        Description
+
+        Analog supply 1 short circuit. Limit 100 mA.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, AnalogSupply1Current
+
+        
+
+      ",1711
+0x7221,InternalSupply,SensorSupNotCon,"
+
+      
+
+        Description
+
+        Fault is set if 12V Sensor Supply current is too low. Limit 6mA. 
+
+        Note: If you have multiple sensors connected to this supply this event might only be set if all devices are disconnected.
+
+        It will then depend on detection limit and current consumption in connected devices.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, SensorSupplyCurrent
+
+      
+
+    ",800
+0x7220,InternalSupply,SensorSupSHC,"
+
+      
+
+        Description
+
+        Fault is set if 12V Sensor Supply current is too high. Limit 68mA.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, SensorSupplyCurrent
+
+      
+
+    ",801
+0x7231,InternalSupply,SensorSupRange,"
+
+      
+
+        Description
+
+        12V Sensor Supply voltage out of range. Valid range 10.00 to 14.00 V.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, SensorSupplyVoltage 
+
+        InternalVoltageSupplies, SensorSupplyGain 
+
+      
+
+    ",811
+0x7230,InternalSupply,SensSupRefRange,"
+
+      
+
+        Description
+
+        12V Sensor Supply Ref voltage out of range. Valid range 10.00 to 14.00 V.
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        InternalVoltageSupplies, SensorSupplyRefVoltage 
+
+        InternalVoltageSupplies, SensorSupplyRefGain
+
+      
+
+    ",810
+,InternalSupply,DefaultValues,"
+
+    
+
+      Description
+
+      Default calibration values for Sensor Supply gains are loaded from Eeprom 
+
+      (either checksum error on segment or commanded by user).
+
+      When is event evaluated
+
+      At startup.
+
+      Related parameters
+
+      InternalVoltageSupplies, SensorSupplyRefGain
+
+      InternalVoltageSupplies, SensorSupplyGain 
+
+    
+
+   ",830
+0x3330,InternalSupply,ExtGndTripped,"
+
+    
+
+      Description
+
+      Set when HW EXT_GND_TRIP signal is detected. Reset of node required to clear error. Events related to speed feedback and motor temp measurement may follow this event.
+
+      When is event evaluated
+
+      Always
+
+      Related parameters
+
+      No related Parameters.
+
+    
+
+   ",1730
+0x3333,Application,AccSwitchActive,"
+
+        
+
+        Description
+
+        The acceleration switch is active at key on.
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        
+
+      ",10001
+0x3333,Application,DirSwitchActive,"
+
+        
+
+        Description
+
+        A direction switch is active at key on.
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        
+
+      ",10002
+0x3333,Application,DirSwitchError,"
+
+        
+
+        Description
+
+        Both forward and reverse direction chosen at the same time. 
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10003
+0x3333,Application,TracPotError,"
+
+        
+
+        Description
+
+        Traction pot out of range or not connected. 
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10004
+0x3333,Application,TracSwitchError,"
+
+        
+
+        Description
+
+        Traction pot command is issued without traction switch being active. 
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10005
+0x3333,Application,NoDriverWiPark,"
+
+        
+
+        Description
+
+        The driver leaved with parking brake over 2 minutes, turn off the main contacotr for save energy.  
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10007
+0x3333,Application,SteerPotError,"
+
+        
+
+        Description
+
+       Steer pot is out of range or not connected. 
+
+        
+
+      ",10008
+0x3333,Application,BatteryLowVoltage,"
+
+        
+
+        Description
+
+        BDI indicates low battery voltage, below 15%. Reduced power.  
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10020
+0x3333,Application,TracPowerReduced,"
+
+        
+
+        Description
+
+        If traction drive is in limp mode, this event will inform the driver via a warning bit 
+
+        When is event evaluated
+
+        If errors/warnings are active 
+
+        Related parameters
+
+        
+
+      ",10025
+0x3333,Application,MainContactorOff,"
+
+        
+
+        Description
+
+        If traction drive is in limp mode, this event will inform the driver via a warning bit 
+
+        When is event evaluated
+
+        If errors/warnings are active 
+
+        Related parameters
+
+        
+
+      ",10027
+0x3333,Application,ChargingPortOpen,"
+
+      
+
+      Description
+
+      Event indicates that the charging port is open, no traction allowed.
+
+      When is event evaluated
+
+      If errors/warnings are active 
+
+      Related parameters
+
+      
+
+    ",10028
+0x3333,Application,EHandBrakeReleasePressureLow,"
+
+        
+
+        Description
+
+        The Pressure to Relsese E-Hand Brake is Low . 
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10087
+0x3333,Application,SlaveTripMainContactor,"
+
+      
+
+      Description
+
+      When there is an error in slave node, trip the main contactor  
+
+      When is event evaluated
+
+      Always
+
+      Related parameters
+
+      
+
+    ",10050
+0x3333,Application,ArrayNotAscendingOrder,"
+
+        
+
+        Description
+
+        Array expects ascending order, but does not.
+
+        When is event evaluated
+
+        Always and in 50 Hz
+
+        Related parameters
+
+        
+
+      ",10090
+0x3333,Application,PumpPotRelatedError,"
+
+        
+
+        Description
+
+        Pump pot is out of range or not connected, or some pot is activated at start up. 
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10010
+0x8420,StartupTest,CpuTest,"
+
+        
+
+        Description
+
+        Startup test of CPU failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1900
+0x8420,StartupTest,Watchdog,"
+
+        
+
+        Description
+
+        Startup test of Watchdog failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1901
+0x8420,StartupTest,64MHzHSI,"
+
+        
+
+        Description
+
+        Startup test of 64 MHz HSI failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1902
+0x8420,StartupTest,Checkpoint1,"
+
+        
+
+        Description
+
+        Startup test of Checkpoint1 Control flow failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1903
+0x8420,StartupTest,FullRamMarch,"
+
+        
+
+        Description
+
+        Startup test of Full Ram March failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1904
+0x8420,StartupTest,SwitchOffPll,"
+
+        
+
+        Description
+
+        Startup failed do switch off PLL. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1905
+0x8420,StartupTest,LsiStart,"
+
+        
+
+        Description
+
+        Failed to start LSI. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1906
+0x8420,StartupTest,HseStart,"
+
+        
+
+        Description
+
+        Failed to start HSE. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1907
+0x8420,StartupTest,HsiHse,"
+
+        
+
+        Description
+
+        Startup test of HSI HSE switch failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1908
+0x8420,StartupTest,ExtSource,"
+
+        
+
+        Description
+
+        Startup test of Ext source failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1909
+0x8420,StartupTest,ClockFreq,"
+
+        
+
+        Description
+
+        Startup test of Clock frequency failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1910
+0x8420,StartupTest,Checkpoint2,"
+
+        
+
+        Description
+
+        Startup test of Checkpoint2 Control flow failed. 
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        No related parameters.
+
+        
+
+      ",1911
