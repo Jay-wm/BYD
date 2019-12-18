@@ -31,32 +31,32 @@ for file in range(len(files)):
 
         # 获取紧急错误代码（Emergency Error Cpde）
         EmergencyErrorCode_list = Events_Error_Code[i].xpath('td[2]/text()')
-        if len(EmergencyErrorCode_list) == 0:
-            EmergencyErrorCode.append('')
-        else:
+        if len(EmergencyErrorCode_list) != 0:
+        #     # EmergencyErrorCode.append('')
+        # else:
             EmergencyErrorCode.append(EmergencyErrorCode_list[0])
 
-        # 获取故障所在组名
-        Group.append(Events_Error_Code[i].xpath('td[@id="EventGroup"]/text()')[0])
-        # 获取故障
-        Event.append(Events_Error_Code[i].xpath('td[@id="EventName"]/text()')[0])
-        # 获取故障描述以及何时发生
-        Description_all = Events_Error_Code[i].xpath('td[@id="EventDescription"]')[0]
-        Description.append(Description_all.xpath('string(.)'))
-        # 获取故障代码
-        Event_ID.append(Events_Error_Code[i].xpath('td[6]/text()')[0])
+            # 获取故障所在组名
+            Group.append(Events_Error_Code[i].xpath('td[@id="EventGroup"]/text()')[0])
+            # 获取故障
+            Event.append(Events_Error_Code[i].xpath('td[@id="EventName"]/text()')[0])
+            # 获取故障描述以及何时发生
+            Description_all = Events_Error_Code[i].xpath('td[@id="EventDescription"]')[0]
+            Description.append(Description_all.xpath('string(.)'))
+            # 获取故障代码
+            Event_ID.append(Events_Error_Code[i].xpath('td[6]/text()')[0])
 
 
     '''将每组数据组成字典添加到数组中'''
-    for i in range(len(Events_Error_Code)):
+    for i in range(len(Event_ID)):
         dict = {'EmergencyErrorCode': EmergencyErrorCode[i], 'Group': Group[i], 'Event': Event[i],
                 'Description': Description[i], 'Event_ID': Event_ID[i]}
         data.append(dict)
 
     '''将获取的数据写入csv格式文件'''
     titles = ['EmergencyErrorCode', 'Group', 'Event', 'Description', 'Event_ID']
-    file_name = 'C80D-Error_Event_node' + str(file + 6) + '.csv'
-    with open(file_name, 'w', encoding = 'UTF-8') as f:
+    file_name = 'C80D-Error_Event_node' + str(file + 6) + '-filterde.csv'
+    with open(file_name, 'w', newline = '', encoding = 'UTF-8') as f:
         writer = csv.DictWriter(f, fieldnames = titles)
         writer.writeheader()
         writer.writerows(data)

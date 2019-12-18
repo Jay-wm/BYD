@@ -34,29 +34,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
       
 
      ",100
-,Power stage,ShortCircuitCounter,"
-
-      
-
-       Description
-
-       This is an inforamative event that in combination with the ShortCircuit-event can be usefull when analyzing short circuit situations.
-
-       This event will be cleared when power stage is disabled. A consequnce of this is that for this event, unlike for the ShortCircuit-event, the occurance counter will increase also
-
-       when trying to enable against a permanent short circuit. 
-
-       When is event evaluated
-
-       When enabled
-
-       Related parameters
-
-       No related parameters.
-
-      
-
-     ",101
 0x2341,Power stage,ShortCGlitch,"
 
     
@@ -196,68 +173,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",203
-,Current Measurements,DefaultValues,"
-
-    
-
-     Description
-
-     Event is set when default values are loaded from Eeprom (either due to checksum error on segment or commanded by user).
-
-     Indicates that the drive is not calibrated. 
-
-     When is event evaluated
-
-     At startup
-
-     Related parameters
-
-     CurrentSensorsCalibration, SetDefaultValues
-
-     CurrentSensorsCalibration, IvGain
-
-     CurrentSensorsCalibration, IvPosTempGain
-
-     CurrentSensorsCalibration, IvNegTempGain
-
-     CurrentSensorsCalibration, IwGain
-
-     CurrentSensorsCalibration, IwPosTempGain
-
-     CurrentSensorsCalibration, IwNegTempGain
-
-     CurrentSensorsCalibration, IvOffset
-
-     CurrentSensorsCalibration, IwOffset
-
-    
-
-   ",204
-,Current Measurements,HighEnergyWarning,"
-
-    
-
-     Description
-
-     Event is set when calculated energy level is above specified limit.
-
-     Indicates that more then continous current have been used longen the intended. 
-
-     When is event evaluated
-
-     When enabled
-
-     Related parameters
-
-     EnergyLimit, ConstantCurrentLimit
-
-     EnergyLimit, ReductionPgain
-
-     EnergyLimit, EnergyFilterGain
-
-    
-
-   ",205
 0x2310,Current Measurements,CustomizedOverCurrentError,"
 
     
@@ -283,33 +198,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",310
-,Current Measurements,AutoTuningHighModulation,"
-
-    
-
-     Description
-
-     Event is set when modulation exceed 95% when Autotuning.
-
-     Running above full modulation in Autotuning will compromize the result 
-
-     since the tuned parameters are for current control. 
-
-     To prevent the event the dc voltage can be increased or 
-
-     the Autotuning current decreased.
-
-     When is event evaluated
-
-     When doing Autotuning step1 or step2.
-
-     Related parameters
-
-     No related parameters.
-
-    
-
-   ",330
 0x8060,Motor,SpeedLimit,"
 
     
@@ -352,68 +240,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",302
-,Motor,ModeratelyHighSpeed,"
-
-    
-
-     Description
-
-     Event is set if motor speed is above predefined level.
-
-     Max allowed accelerating current is reduced linearly.
-
-     Limits: See related parameters.
-
-     When is event evaluated
-
-     When speed feedback sensor signal is valid
-
-     Related parameters
-
-     CurrentLimit, ModeratelyHighSpeedStartLevel
-
-     CurrentLimit, ModeratelyHighSpeedEndLevel
-
-     CurrentLimit, AbilityAccelerationCurrent
-
-     CurrentLimit, AbilityBrakeCurrent
-
-    
-
-   ",303
-,Motor,ModeratelyLowSpeed,"
-
-    
-
-     Description
-
-     Event is set if motor speed is below predefined level.
-
-     Mainly used in hybrid drives in combination with combustion engines 
-
-     to prevent rotation of engine in wrong direction.
-
-     Max allowed braking current is reduced linearly.
-
-     Limits: See related parameters.
-
-     When is event evaluated
-
-     When speed feedback sensor signal is valid
-
-     Related parameters
-
-     CurrentLimit, ModeratelyLowSpeedStartLevel
-
-     CurrentLimit, ModeratelyLowSpeedEndLevel
-
-     CurrentLimit, AbilityAccelerationCurrent
-
-     CurrentLimit, AbilityBrakeCurrent
-
-    
-
-   ",304
 0x8070,Motor,SlipInWrongDirection,"
 
     
@@ -594,33 +420,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",402
-,DC Bus,ModeratelyHigh,"
-
-    
-
-     Description
-
-     Event is set if measured voltage is above predefined level.
-
-     Max allowed current is reduced linearly. Hystereris level of 1 V for setting/clearing event.
-
-     Limits: See related parameters.
-
-     When is event evaluated
-
-     Always
-
-     Related parameters
-
-     DcBus, HighWarningLevel
-
-     DcBus, HighVoltageReductionEndLevel
-
-     CurrentLimit, AbilityBrakeCurrent
-
-    
-
-   ",403
 0x3211,DC Bus,High,"
 
     
@@ -644,33 +443,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",404
-,DC Bus,ModeratelyLow,"
-
-    
-
-     Description
-
-     Event is set if measured voltage is below predefined level.
-
-     Max allowed current is reduced linearly. Hystereris level of 1 V for setting/clearing event.
-
-     Limits: See related parameters.
-
-     When is event evaluated
-
-     When ignore low DC bus bit is not active
-
-     Related parameters
-
-     DcBus, LowWarningLevel
-
-     DcBus, LowVoltageReductionEndLevel
-
-     CurrentLimit, AbilityAccelerationCurrent
-
-    
-
-   ",405
 0x3221,DC Bus,Low,"
 
     
@@ -717,31 +489,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",407
-,DC Bus,DefaultValues,"
-
-    
-
-     Description
-
-     Event is set when default values are loaded from Eeprom (either due to checksum error on segment or commanded by user).
-
-     Indicates that the drive is not calibrated. 
-
-     When is event evaluated
-
-     At startup
-
-     Related parameters
-
-     DcBus, DcBusCalValueGain
-
-     DcBus, DcBusCalValueOffset
-
-     DcBus, SetDcBusCalValuesDefault
-
-    
-
-   ",408
 0x4320,Power Stage Temperature Sensor,NotConnected,"
 
     
@@ -788,47 +535,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",501
-,Power Stage Temperature Sensor,ModeratelyHigh,"
-
-    
-
-     Description
-
-     Event is set if internal Power Stage temperature is above predefined level.
-
-     Max allowed accelerating AC current is reduced linearly.
-
-     Optionally Max allowed brakeing AC current is reduced linearly.
-
-     Limits: Event is set at HeatSinkHighWarningLevel deg celcius where reduction of AC current starts. 
-
-     At HeatSinkReductionEndHighLevel deg celsius AC current is reduced to 0.
-
-     If HeatSinkReductionEndHighLevel is 0 reduction is in-active.
-
-     
-
-      HeatSinkHighWarningLevel = 85     
-
-      HeatSinkReductionEndHighLevel = 125    
-
-      
-
-     When is event evaluated
-
-     When sensor is connected and not short circuit
-
-     Related parameters
-
-     PowerStageTemperature, Temperature
-
-     CurrentLimit, AbilityAccelerationCurrent
-
-     CurrentLimit, AbilityBrakeCurrent
-
-    
-
-   ",502
 0x4310,Power Stage Temperature Sensor,High,"
 
     
@@ -850,47 +556,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",503
-,Power Stage Temperature Sensor,ModeratelyLow,"
-
-    
-
-     Description
-
-     Event is set if internal Power Stage temperature is below predefined level.
-
-     Max allowed accelerating AC current is reduced linearly.
-
-     Optionally Max allowed brakeing AC current is reduced linearly. 
-
-     Limits: Event is set at HeatSinkLowWarningLevel deg celcius where reduction of AC current starts. 
-
-     At HeatSinkReductionEndLowLevel deg celsius AC current is reduced to 0.
-
-     If HeatSinkReductionEndLowLevel is 0 reduction is in-active.
-
-     
-
-      HeatSinkLowWarningLevel = -20    
-
-      HeatSinkReductionEndLowLevel = -70    
-
-         
-
-     When is event evaluated
-
-     When sensor is connected and not short circuit
-
-     Related parameters
-
-     PowerStageTemperature, Temperature    
-
-     CurrentLimit, AbilityAccelerationCurrent
-
-     CurrentLimit, AbilityBrakeCurrent
-
-    
-
-   ",504
 0x4220,Motor Temperature Sensor,NotConnected,"
 
     
@@ -945,47 +610,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",601
-,Motor Temperature Sensor,ModeratelyHigh,"
-
-    
-
-     Description
-
-     Event is set if motor temperature is above predefined level.
-
-     Max allowed accelerating AC current is reduced linearly.
-
-     Optionally Max allowed brakeing AC current is reduced linearly.
-
-     Limits: Event is set at MotorHighWarningLevel deg celcius where reduction of AC current starts. 
-
-     At MotorReductionEndHighLevel deg celsius AC current is reduced to 0.
-
-     If MotorReductionEndHighLevel is 0 reduction is in-active.
-
-     
-
-      MotorHighWarningLevel = 165
-
-      MotorReductionEndHighLevel = 175
-
-     
-
-     When is event evaluated
-
-     When sensor is connected and not short circuit
-
-     Related parameters
-
-     MotorTemperature, Temperature
-
-     MotorTemperature, ModeratelyHighLevel
-
-     MotorTemperature, ReductionEndHighLevel
-
-    
-
-   ",602
 0x4210,Motor Temperature Sensor,High,"
 
     
@@ -1009,154 +633,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",603
-,Motor Temperature Sensor,ModeratelyLow,"
-
-    
-
-     Event is set if motor temperature is below predefined level.
-
-     Max allowed accelerating AC current is reduced linearly.
-
-     Optionally Max allowed brakeing AC current is reduced linearly.
-
-     Limits: Event is set at MotorLowWarningLevel deg celcius where reduction of AC current starts. 
-
-     At MotorReductionEndLowLevel deg celsius AC current is reduced to 0.
-
-     If MotorReductionEndLowLevel is 0 reduction is in-active.
-
-     
-
-      MotorHighWarningLevel = -35
-
-      MotorReductionEndLowLevel = 0
-
-     
-
-     When is event evaluated
-
-     When sensor is connected and not short circuit
-
-     Related parameters
-
-     MotorTemperature, Temperature
-
-     MotorTemperature, ModeratelyLowLevel
-
-     MotorTemperature, ReductionEndLowLevel
-
-    
-
-   ",604
-,Pcb Temperature Sensor,NotConnected,"
-
-    
-
-     Description
-
-     Event is set if internal PCB temperature sensor is not connected.
-
-     SW algorithm: Temperature measurement is out of range.
-
-     Limits: Event is set when sensor measures 120     deg celsius
-
-     When is event evaluated
-
-     Always
-
-     Related parameters
-
-     PCBTemperature, Temperature
-
-    
-
-   ",700
-,Pcb Temperature Sensor,ShortCircuit,"
-
-    
-
-     Description
-
-     Event is set if internal PCB temperature sensor is short circuited.
-
-     SW algorithm: Temperature measurement is out of range.
-
-     Limits: Event is set when sensor measures -50     deg celsius
-
-     When is event evaluated
-
-     Always
-
-     Related parameters
-
-     PCBTemperature, Temperature
-
-    
-
-   ",701
-,Pcb Temperature Sensor,ModeratelyHigh,"
-
-    
-
-     Description
-
-     Event is set if measured temperature is above predefined level.
-
-     Limits: Event is set at 80      deg celsius.
-
-     When is event evaluated
-
-     When sensor is connected and not short circuit
-
-     Related parameters
-
-     PCBTemperature, Temperature
-
-    
-
-   ",702
-,Pcb Temperature Sensor,High,"
-
-    
-
-     Description
-
-     Event is set if measured temperature is above predefined level.
-
-     Limits: Event is set at 95      deg celsius.
-
-     When is event evaluated
-
-     When sensor is connected and not short circuit
-
-     Related parameters
-
-     PCBTemperature, Temperature
-
-    
-
-   ",703
-,Pcb Temperature Sensor,ModeratelyLow,"
-
-    
-
-     Description
-
-     Event is set if measured temperature is below predefined level.
-
-     Limits: Event is set at -45     deg celsius.
-
-     When is event evaluated
-
-     When sensor is connected and not short circuit
-
-     Related parameters
-
-     PCBTemperature, Temperature
-
-    
-
-   ",704
 0x7240,Encoder Feedback Sensor,DecTooHigh,"
 
         
@@ -1934,83 +1410,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",1203
-0x8105,CAN,Pdo5Timeout,"
-
-    
-
-     Description
-
-     Event is set if Rx PDO 5 is not received within timeout time.
-
-     When is event evaluated
-
-     Always
-
-     Related parameters
-
-     CANParameters, Pdo5Timeout    
-
-    
-
-   ",1204
-0x8106,CAN,Pdo6Timeout,"
-
-    
-
-     Description
-
-     Event is set if Rx PDO 6 is not received within timeout time.
-
-     When is event evaluated
-
-     Always
-
-     Related parameters
-
-     CANParameters, Pdo6Timeout    
-
-    
-
-   ",1205
-0x8107,CAN,Pdo7Timeout,"
-
-    
-
-     Description
-
-     Event is set if Rx PDO 7 is not received within timeout time.
-
-     When is event evaluated
-
-     Always
-
-     Related parameters
-
-     CANParameters, Pdo7Timeout    
-
-    
-
-   ",1206
-0x8108,CAN,Pdo8Timeout,"
-
-    
-
-     Description
-
-     Event is set if Rx PDO 8 is not received within timeout time.
-
-     When is event evaluated
-
-     Always
-
-     Related parameters
-
-     CANParameters, Pdo8Timeout    
-
-    
-
-   ",1207
-0x8109,CAN,SynchTimeout,"
+0x8105,CAN,SynchTimeout,"
 
     
 
@@ -2028,7 +1428,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1208
+   ",1204
 0x8100,CAN,MapError,"
 
     
@@ -2047,7 +1447,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1209
+   ",1205
 0x8110,CAN,Sdo1Timeout,"
 
     
@@ -2072,7 +1472,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1210
+   ",1206
 0x8111,CAN,Sdo2Timeout,"
 
     
@@ -2097,7 +1497,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1211
+   ",1207
 0x8118,CAN,SDO1SessionBusy,"
 
     
@@ -2114,7 +1514,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1212
+   ",1208
 0x8119,CAN,SDO2SessionBusy,"
 
     
@@ -2131,49 +1531,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1213
-,CAN,BusOff,"
-
-    
-
-     Description
-
-     Event is set if CAN chip on MCU has entered Bus Off state at least once since reset of unit.
-
-     Reset of unit is required to clear event.
-
-     When is event evaluated
-
-     After startup sequence.
-
-     Related parameters
-
-     No related parameters.
-
-    
-
-   ",1220
-,Cpu,RecoveredReadError,"
-
-        
-
-        Description
-
-        Fault is set if there is a checksum error on any eeprom segment with checksum and that the segment has been successfully read during a retry.  
-
-        It is then considered a read error. This could indicate EMC problems for example.
-
-        When is event evaluated
-
-        Whenever eeprom parameters are read. Typically at Startup
-
-        Related parameters
-
-        No related parameters.
-
-        
-
-      ",1401
+   ",1209
 0x5520,Cpu,ChecksumError,"
 
         
@@ -2237,27 +1595,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
         
 
       ",1423
-,Cpu,DefaultValues,"
-
-        
-
-        Description
-
-        Fault is set if new SW is downloaded, HW id is changed or there is a 
-
-        checksum error on the systmg eeprom segment.
-
-        When is event evaluated
-
-        At Startup
-
-        Related parameters
-
-        No related parameters.
-
-        
-
-      ",1402
 0x8403,Cpu,PowerOutReset,"
 
         
@@ -2640,25 +1977,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
         
 
       ",1702
-,InternalSupply,KeyLow,"
-
-      
-
-       Description
-
-       Restart event used to disable drive when key goes low. Drive is enabled again if key goes high withing 175ms. If key is low more than that drive will enter AFTERRUN state.
-
-       When is event evaluated
-
-       Always
-
-       Related parameters
-
-       No related parameters.
-
-      
-
-     ",1703
 0x3311,InternalSupply,AnalogSup1Range,"
 
         
@@ -2781,29 +2099,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
       
 
     ",810
-,InternalSupply,DefaultValues,"
-
-    
-
-      Description
-
-      Default calibration values for Sensor Supply gains are loaded from Eeprom 
-
-      (either checksum error on segment or commanded by user).
-
-      When is event evaluated
-
-      At startup.
-
-      Related parameters
-
-      InternalVoltageSupplies, SensorSupplyRefGain
-
-      InternalVoltageSupplies, SensorSupplyGain 
-
-    
-
-   ",830
 0x3330,InternalSupply,ExtGndTripped,"
 
     
@@ -2823,13 +2118,47 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
     
 
    ",1730
-0x3333,Application,TiltActiveAtstartup,"
+0x3333,Application,AccSwitchActive,"
 
         
 
         Description
 
-        Tilt switch is active at key on. 
+        The acceleration switch is active at key on.
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        
+
+      ",10001
+0x3333,Application,DirSwitchActive,"
+
+        
+
+        Description
+
+        A direction switch is active at key on.
+
+        When is event evaluated
+
+        At Startup
+
+        Related parameters
+
+        
+
+      ",10002
+0x3333,Application,DirSwitchError,"
+
+        
+
+        Description
+
+        Both forward and reverse direction chosen at the same time. 
 
         When is event evaluated
 
@@ -2839,14 +2168,14 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",10011
-0x3333,Application,SideActiveAtstartup,"
+      ",10003
+0x3333,Application,TracPotError,"
 
         
 
         Description
 
-        Side shift switch is active at key on. 
+        Traction pot out of range or not connected. 
 
         When is event evaluated
 
@@ -2856,14 +2185,14 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",10012
-0x3333,Application,AttachActiveAtstartup,"
+      ",10004
+0x3333,Application,TracSwitchError,"
 
         
 
         Description
 
-        Attachment switch is active at key on. 
+        Traction pot command is issued without traction switch being active. 
 
         When is event evaluated
 
@@ -2873,14 +2202,14 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",10013
-0x3333,Application,LiftActiveAtstartup,"
+      ",10005
+0x3333,Application,NoDriverWiPark,"
 
         
 
         Description
 
-        Pump speed 4 switch is active at key on. 
+        The driver leaved with parking brake over 2 minutes, turn off the main contacotr for save energy.  
 
         When is event evaluated
 
@@ -2890,14 +2219,144 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",10014
-0x3333,Application,PumpPotError,"
+      ",10007
+0x3333,Application,SteerPotError,"
 
         
 
         Description
 
-        Pump pot is out of range or not connected. 
+       Steer pot is out of range or not connected. 
+
+        
+
+      ",10008
+0x3333,Application,BatteryLowVoltage,"
+
+        
+
+        Description
+
+        BDI indicates low battery voltage, below 15%. Reduced power.  
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10020
+0x3333,Application,TracPowerReduced,"
+
+        
+
+        Description
+
+        If traction drive is in limp mode, this event will inform the driver via a warning bit 
+
+        When is event evaluated
+
+        If errors/warnings are active 
+
+        Related parameters
+
+        
+
+      ",10025
+0x3333,Application,MainContactorOff,"
+
+        
+
+        Description
+
+        If traction drive is in limp mode, this event will inform the driver via a warning bit 
+
+        When is event evaluated
+
+        If errors/warnings are active 
+
+        Related parameters
+
+        
+
+      ",10027
+0x3333,Application,ChargingPortOpen,"
+
+      
+
+      Description
+
+      Event indicates that the charging port is open, no traction allowed.
+
+      When is event evaluated
+
+      If errors/warnings are active 
+
+      Related parameters
+
+      
+
+    ",10028
+0x3333,Application,EHandBrakeReleasePressureLow,"
+
+        
+
+        Description
+
+        The Pressure to Relsese E-Hand Brake is Low . 
+
+        When is event evaluated
+
+        Always
+
+        Related parameters
+
+        
+
+      ",10087
+0x3333,Application,SlaveTripMainContactor,"
+
+      
+
+      Description
+
+      When there is an error in slave node, trip the main contactor  
+
+      When is event evaluated
+
+      Always
+
+      Related parameters
+
+      
+
+    ",10050
+0x3333,Application,ArrayNotAscendingOrder,"
+
+        
+
+        Description
+
+        Array expects ascending order, but does not.
+
+        When is event evaluated
+
+        Always and in 50 Hz
+
+        Related parameters
+
+        
+
+      ",10090
+0x3333,Application,PumpPotRelatedError,"
+
+        
+
+        Description
+
+        Pump pot is out of range or not connected, or some pot is activated at start up. 
 
         When is event evaluated
 
@@ -2908,74 +2367,6 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
         
 
       ",10010
-0x3333,Application,PumpPowerReduced,"
-
-        
-
-        Description
-
-        If pump drive is in limp mode, this event will inform the driver via a warning bit 
-
-        When is event evaluated
-
-        If errors/warnings are active 
-
-        Related parameters
-
-        
-
-      ",10026
-0x6000,Application,PumpOverload,"
-
-        
-
-        Description
-
-        Oil Pressure switch is active . 
-
-        When is event evaluated
-
-        Always
-
-        Related parameters
-
-        
-
-      ",10029
-0x3333,Application,EHandBrakeOn,"
-
-        
-
-        Description
-
-        E-Hand Brake is active . 
-
-        When is event evaluated
-
-        Always
-
-        Related parameters
-
-        
-
-      ",10086
-0x3333,Application,SafeBeltOpen,"
-
-        
-
-        Description
-
-        The safe belt is inactivated.
-
-        When is event evaluated
-
-        At Startup
-
-        Related parameters
-
-        
-
-      ",10030
 0x8420,StartupTest,CpuTest,"
 
         

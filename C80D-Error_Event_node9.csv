@@ -1,4 +1,4 @@
-EmergencyErrorCode,Group,Event,Description,Event_ID
+EmergencyErrorCode,Group,Event,Description,Event_ID
 0x2340,Power stage,ShortCircuit,"
 
       
@@ -33,7 +33,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-     ",100
+     ",100
 ,Power stage,ShortCircuitCounter,"
 
       
@@ -56,7 +56,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-     ",101
+     ",101
 0x2341,Power stage,ShortCGlitch,"
 
     
@@ -83,7 +83,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",103
+   ",103
 0x2355,Power stage,ExtWDogTripped,"
 
     
@@ -104,7 +104,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",115
+   ",115
 0x5210,Current Measurements,SensorOffset,"
 
     
@@ -129,7 +129,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",200
+   ",200
 0x2310,Current Measurements,OverCurrentError,"
 
     
@@ -164,7 +164,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",202
+   ",202
 0x2311,Current Measurements,OverCurrGlitch,"
 
     
@@ -195,7 +195,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",203
+   ",203
 ,Current Measurements,DefaultValues,"
 
     
@@ -232,7 +232,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",204
+   ",204
 ,Current Measurements,HighEnergyWarning,"
 
     
@@ -257,7 +257,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",205
+   ",205
 0x2310,Current Measurements,CustomizedOverCurrentError,"
 
     
@@ -282,7 +282,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",310
+   ",310
 ,Current Measurements,AutoTuningHighModulation,"
 
     
@@ -309,7 +309,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",330
+   ",330
 0x8060,Motor,SpeedLimit,"
 
     
@@ -328,7 +328,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",301
+   ",301
 0x8060,Motor,HighSpeed,"
 
     
@@ -351,7 +351,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",302
+   ",302
 ,Motor,ModeratelyHighSpeed,"
 
     
@@ -380,7 +380,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",303
+   ",303
 ,Motor,ModeratelyLowSpeed,"
 
     
@@ -413,7 +413,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",304
+   ",304
 0x8070,Motor,SlipInWrongDirection,"
 
     
@@ -440,7 +440,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",306
+   ",306
 0x8071,Motor,TooHighZeroSpeedSlip,"
 
     
@@ -465,7 +465,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",307
+   ",307
 0x8090,Motor,ACCurrentControlError,"
 
     
@@ -506,7 +506,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",308
+   ",308
 0x80A0,Motor,ACCurrentMeasPlausibilityError,"
 
     
@@ -551,7 +551,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",309
+   ",309
 0x80B0,Motor,FrequencyAbove599Hz,"
 
     
@@ -574,7 +574,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",320
+   ",320
 0x3212,DC Bus,HighVoltageHardware,"
 
     
@@ -593,7 +593,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",402
+   ",402
 ,DC Bus,ModeratelyHigh,"
 
     
@@ -620,7 +620,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",403
+   ",403
 0x3211,DC Bus,High,"
 
     
@@ -643,7 +643,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",404
+   ",404
 ,DC Bus,ModeratelyLow,"
 
     
@@ -670,7 +670,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",405
+   ",405
 0x3221,DC Bus,Low,"
 
     
@@ -693,7 +693,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",406
+   ",406
 0x3120,DC Bus,ChargingError,"
 
     
@@ -716,7 +716,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",407
+   ",407
 ,DC Bus,DefaultValues,"
 
     
@@ -741,7 +741,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",408
+   ",408
 0x4320,Power Stage Temperature Sensor,NotConnected,"
 
     
@@ -764,7 +764,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",500
+   ",500
 0x4320,Power Stage Temperature Sensor,ShortCircuit,"
 
     
@@ -787,7 +787,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",501
+   ",501
 ,Power Stage Temperature Sensor,ModeratelyHigh,"
 
     
@@ -828,7 +828,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",502
+   ",502
 0x4310,Power Stage Temperature Sensor,High,"
 
     
@@ -849,7 +849,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",503
+   ",503
 ,Power Stage Temperature Sensor,ModeratelyLow,"
 
     
@@ -890,7 +890,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",504
+   ",504
 0x4220,Motor Temperature Sensor,NotConnected,"
 
     
@@ -917,7 +917,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",600
+   ",600
 0x4220,Motor Temperature Sensor,ShortCircuit,"
 
     
@@ -944,7 +944,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",601
+   ",601
 ,Motor Temperature Sensor,ModeratelyHigh,"
 
     
@@ -985,7 +985,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",602
+   ",602
 0x4210,Motor Temperature Sensor,High,"
 
     
@@ -1008,7 +1008,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",603
+   ",603
 ,Motor Temperature Sensor,ModeratelyLow,"
 
     
@@ -1047,7 +1047,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",604
+   ",604
 ,Pcb Temperature Sensor,NotConnected,"
 
     
@@ -1070,7 +1070,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",700
+   ",700
 ,Pcb Temperature Sensor,ShortCircuit,"
 
     
@@ -1093,7 +1093,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",701
+   ",701
 ,Pcb Temperature Sensor,ModeratelyHigh,"
 
     
@@ -1114,7 +1114,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",702
+   ",702
 ,Pcb Temperature Sensor,High,"
 
     
@@ -1135,7 +1135,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",703
+   ",703
 ,Pcb Temperature Sensor,ModeratelyLow,"
 
     
@@ -1156,7 +1156,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",704
+   ",704
 0x7240,Encoder Feedback Sensor,DecTooHigh,"
 
         
@@ -1181,7 +1181,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",804
+      ",804
 0x7260,Encoder Feedback Sensor,DecTooHighGlitch,"
 
         
@@ -1206,7 +1206,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",826
+      ",826
 0x7250,Encoder Feedback Sensor,PlausabilityError,"
 
         
@@ -1227,7 +1227,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",805
+      ",805
 0x7360,Encoder Feedback Sensor,Loss_Of_Ch_A,"
 
         
@@ -1250,7 +1250,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",802
+      ",802
 0x7370,Encoder Feedback Sensor,Loss_Of_Ch_B,"
 
         
@@ -1273,7 +1273,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",803
+      ",803
 0x7351,Encoder Feedback Sensor,BadOrShortedInputs,"
 
         
@@ -1292,7 +1292,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",827
+      ",827
 0x5411,Open Drain Output,ShortCircuitCh1,"
 
       
@@ -1313,7 +1313,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-      ",1001
+      ",1001
 0x5411,Open Drain Output,HighCurrentCh1,"
 
         
@@ -1336,7 +1336,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1021
+      ",1021
 0x5451,Open Drain Output,NotConnectedCh1,"
 
         
@@ -1357,7 +1357,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1011
+      ",1011
 0x5461,Open Drain Output,CurrMeasWhenOffCh1,"
 
         
@@ -1376,7 +1376,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1031
+      ",1031
 0x5412,Open Drain Output,ShortCircuitCh2,"
 
       
@@ -1397,7 +1397,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-      ",1002
+      ",1002
 0x5452,Open Drain Output,NotConnectedCh2,"
 
         
@@ -1418,7 +1418,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1012
+      ",1012
 0x5412,Open Drain Output,HighCurrentCh2,"
 
     	
@@ -1441,7 +1441,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1022
+      ",1022
 0x5462,Open Drain Output,CurrMeasWhenOffCh2,"
 
         
@@ -1460,7 +1460,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1032
+      ",1032
 0x5413,Open Drain Output,ShortCircuitCh3,"
 
       
@@ -1481,7 +1481,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-      ",1003
+      ",1003
 0x5413,Open Drain Output,HighCurrentCh3,"
 
         
@@ -1504,7 +1504,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1023
+      ",1023
 0x5453,Open Drain Output,NotConnectedCh3,"
 
         
@@ -1525,7 +1525,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1013
+      ",1013
 0x5463,Open Drain Output,CurrMeasWhenOffCh3,"
 
         
@@ -1544,7 +1544,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1033
+      ",1033
 0x5414,Open Drain Output,ShortCircuitCh4,"
 
       
@@ -1565,7 +1565,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-      ",1004
+      ",1004
 0x5414,Open Drain Output,HighCurrentCh4,"
 
         
@@ -1588,7 +1588,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1024
+      ",1024
 0x5454,Open Drain Output,NotConnectedCh4,"
 
         
@@ -1609,7 +1609,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1014
+      ",1014
 0x5464,Open Drain Output,CurrMeasWhenOffCh4,"
 
         
@@ -1628,7 +1628,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1034
+      ",1034
 0x5415,Open Drain Output,ShortCircuitCh5,"
 
       
@@ -1649,7 +1649,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-      ",1005
+      ",1005
 0x5415,Open Drain Output,HighCurrentCh5,"
 
         
@@ -1672,7 +1672,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1025
+      ",1025
 0x5455,Open Drain Output,NotConnectedCh5,"
 
         
@@ -1693,7 +1693,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1015
+      ",1015
 0x5465,Open Drain Output,CurrMeasWhenOffCh5,"
 
         
@@ -1712,7 +1712,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1035
+      ",1035
 0x5416,Open Drain Output,ShortCircuitCh6,"
 
       
@@ -1733,7 +1733,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-      ",1006
+      ",1006
 0x5416,Open Drain Output,HighCurrentCh6,"
 
       
@@ -1756,7 +1756,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-      ",1026
+      ",1026
 0x5456,Open Drain Output,NotConnectedCh6,"
 
         
@@ -1775,7 +1775,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         OpenDrainOutputNotConnectedLevel, NotConnectedLevel
 
-    	      ",1016
+    	      ",1016
 0x5466,Open Drain Output,CurrMeasWhenOffCh6,"
 
         
@@ -1794,7 +1794,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     	
 
-      ",1036
+      ",1036
 0x5500,HighSideDiagnostics,HighSideShC,"
 
       
@@ -1815,7 +1815,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-    ",1100
+    ",1100
 0x5508,HighSideDiagnostics,HighSideOverload,"
 
       
@@ -1836,7 +1836,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-    ",1108
+    ",1108
 0x5509,HighSideDiagnostics,HighSideHighPeakCurr,"
 
       
@@ -1857,7 +1857,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-    ",1109
+    ",1109
 0x8101,CAN,Pdo1Timeout,"
 
     
@@ -1876,7 +1876,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1200
+   ",1200
 0x8102,CAN,Pdo2Timeout,"
 
     
@@ -1895,7 +1895,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1201
+   ",1201
 0x8103,CAN,Pdo3Timeout,"
 
     
@@ -1914,7 +1914,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1202
+   ",1202
 0x8104,CAN,Pdo4Timeout,"
 
     
@@ -1933,7 +1933,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1203
+   ",1203
 0x8105,CAN,Pdo5Timeout,"
 
     
@@ -1952,7 +1952,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1204
+   ",1204
 0x8106,CAN,Pdo6Timeout,"
 
     
@@ -1971,7 +1971,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1205
+   ",1205
 0x8107,CAN,Pdo7Timeout,"
 
     
@@ -1990,7 +1990,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1206
+   ",1206
 0x8108,CAN,Pdo8Timeout,"
 
     
@@ -2009,7 +2009,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1207
+   ",1207
 0x8109,CAN,SynchTimeout,"
 
     
@@ -2028,7 +2028,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1208
+   ",1208
 0x8100,CAN,MapError,"
 
     
@@ -2047,7 +2047,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1209
+   ",1209
 0x8110,CAN,Sdo1Timeout,"
 
     
@@ -2072,7 +2072,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1210
+   ",1210
 0x8111,CAN,Sdo2Timeout,"
 
     
@@ -2097,7 +2097,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1211
+   ",1211
 0x8118,CAN,SDO1SessionBusy,"
 
     
@@ -2114,7 +2114,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1212
+   ",1212
 0x8119,CAN,SDO2SessionBusy,"
 
     
@@ -2131,7 +2131,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1213
+   ",1213
 ,CAN,BusOff,"
 
     
@@ -2152,7 +2152,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1220
+   ",1220
 ,Cpu,RecoveredReadError,"
 
         
@@ -2173,7 +2173,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1401
+      ",1401
 0x5520,Cpu,ChecksumError,"
 
         
@@ -2198,7 +2198,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1403
+      ",1403
 0x5521,Cpu,ChecksumErrorOnSensorAngleOffset,"
 
         
@@ -2217,7 +2217,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1420
+      ",1420
 0x5524,Cpu,ChecksumErrorOnCANTalk,"
 
         
@@ -2236,7 +2236,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1423
+      ",1423
 ,Cpu,DefaultValues,"
 
         
@@ -2257,7 +2257,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1402
+      ",1402
 0x8403,Cpu,PowerOutReset,"
 
         
@@ -2280,7 +2280,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1400
+      ",1400
 0x8404,Cpu,BrownOutReset,"
 
         
@@ -2303,7 +2303,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1404
+      ",1404
 0x8400,Cpu,I_WatchdogTimeout,"
 
         
@@ -2324,7 +2324,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1406
+      ",1406
 0x8401,Cpu,W_WatchdogTimeout,"
 
         
@@ -2345,7 +2345,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1407
+      ",1407
 0x8410,Cpu,ExeTimeHigh_4kHz,"
 
         
@@ -2364,7 +2364,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1409
+      ",1409
 0x8411,Cpu,ExeTimeHigh_50Hz,"
 
         
@@ -2383,7 +2383,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1410
+      ",1410
 0x8412,Cpu,ExeTimeHigh_IndependentSupervision,"
 
         
@@ -2402,7 +2402,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1411
+      ",1411
 0x8413,Cpu,ExeTimeHigh_CAN,"
 
         
@@ -2421,7 +2421,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1412
+      ",1412
 0x8414,Cpu,ExeTimeHigh_SlowApp,"
 
         
@@ -2440,7 +2440,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1413
+      ",1413
 0x8415,Cpu,ExeTimeHigh_FastApp,"
 
         
@@ -2459,7 +2459,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1414
+      ",1414
 0x8416,Cpu,ExeTimeModHigh_SlowApp,"
 
         
@@ -2478,7 +2478,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1415
+      ",1415
 0x8417,Cpu,ExeTimeModHigh_FastApp,"
 
         
@@ -2497,7 +2497,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1416
+      ",1416
 0x8450,Cpu,InternalError,"
 
         
@@ -2534,7 +2534,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1450
+      ",1450
 0x8452,Cpu,BootInternalError,"
 
         
@@ -2557,7 +2557,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1451
+      ",1451
 0x8451,Cpu,ClockFailure,"
 
         
@@ -2578,7 +2578,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1460
+      ",1460
 0x3301,InternalSupply,15VOutOfRange,"
 
         
@@ -2597,7 +2597,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1700
+      ",1700
 0x3302,InternalSupply,5VOutOfRange,"
 
         
@@ -2616,7 +2616,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1701
+      ",1701
 0x3302,InternalSupply,3V3Low,"
 
         
@@ -2639,7 +2639,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1702
+      ",1702
 ,InternalSupply,KeyLow,"
 
       
@@ -2658,7 +2658,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-     ",1703
+     ",1703
 0x3311,InternalSupply,AnalogSup1Range,"
 
         
@@ -2677,7 +2677,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1710
+      ",1710
 0x3312,InternalSupply,AnalogSup1SHC,"
 
         
@@ -2696,7 +2696,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1711
+      ",1711
 0x7221,InternalSupply,SensorSupNotCon,"
 
       
@@ -2719,7 +2719,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-    ",800
+    ",800
 0x7220,InternalSupply,SensorSupSHC,"
 
       
@@ -2738,7 +2738,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-    ",801
+    ",801
 0x7231,InternalSupply,SensorSupRange,"
 
       
@@ -2759,7 +2759,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-    ",811
+    ",811
 0x7230,InternalSupply,SensSupRefRange,"
 
       
@@ -2780,7 +2780,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
       
 
-    ",810
+    ",810
 ,InternalSupply,DefaultValues,"
 
     
@@ -2803,7 +2803,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",830
+   ",830
 0x3330,InternalSupply,ExtGndTripped,"
 
     
@@ -2822,7 +2822,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
     
 
-   ",1730
+   ",1730
 ,Application,ExampleEvent,"
 
         
@@ -2841,7 +2841,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",10000
+      ",10000
 0x8420,StartupTest,CpuTest,"
 
         
@@ -2860,7 +2860,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1900
+      ",1900
 0x8420,StartupTest,Watchdog,"
 
         
@@ -2879,7 +2879,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1901
+      ",1901
 0x8420,StartupTest,64MHzHSI,"
 
         
@@ -2898,7 +2898,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1902
+      ",1902
 0x8420,StartupTest,Checkpoint1,"
 
         
@@ -2917,7 +2917,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1903
+      ",1903
 0x8420,StartupTest,FullRamMarch,"
 
         
@@ -2936,7 +2936,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1904
+      ",1904
 0x8420,StartupTest,SwitchOffPll,"
 
         
@@ -2955,7 +2955,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1905
+      ",1905
 0x8420,StartupTest,LsiStart,"
 
         
@@ -2974,7 +2974,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1906
+      ",1906
 0x8420,StartupTest,HseStart,"
 
         
@@ -2993,7 +2993,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1907
+      ",1907
 0x8420,StartupTest,HsiHse,"
 
         
@@ -3012,7 +3012,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1908
+      ",1908
 0x8420,StartupTest,ExtSource,"
 
         
@@ -3031,7 +3031,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1909
+      ",1909
 0x8420,StartupTest,ClockFreq,"
 
         
@@ -3050,7 +3050,7 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1910
+      ",1910
 0x8420,StartupTest,Checkpoint2,"
 
         
@@ -3069,4 +3069,4 @@ EmergencyErrorCode,Group,Event,Description,Event_ID
 
         
 
-      ",1911
+      ",1911
